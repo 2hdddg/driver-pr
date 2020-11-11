@@ -6,6 +6,7 @@ remote = "origin"
 
 
 def probe_driver_repo_for_name(driverRepoPath):
+    print("Probing {} for driver name".format(driverRepoPath))
     url = check_output(
         ["git", "remote", "get-url", remote],
         cwd=driverRepoPath, universal_newlines=True)
