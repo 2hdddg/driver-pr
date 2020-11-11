@@ -51,7 +51,8 @@ def main(testkitRepoPath, driverRepoPath, driverTargetBranch):
     # Run testkit
     testkitEnv = {
         "TEST_DRIVER_NAME": driverName,
-        "TEST_DRIVER_REPO": driverRepoPath
+        "TEST_DRIVER_REPO": driverRepoPath,
+        "TEST_IN_TEAMCITY": 1,
     }
     check_call(["python3", "main.py"], env=testkitEnv, cwd=testkitRepoPath)
 
