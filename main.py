@@ -6,13 +6,11 @@ remote = "origin"
 
 
 def probe_driver_repo_for_name(driverRepoPath):
-    print("Probing {} for driver name".format(driverRepoPath))
     url = check_output(
         ["git", "remote", "get-url", remote],
         cwd=driverRepoPath, universal_newlines=True)
-    print("In driver repo {}".format(url))
     url = url.splitlines()[0]
-    match = re.search('^(.*)/neo4j-(?P<driverName>.*)-driver.git$', url)
+    match = re.search('neo4j-(?P<driverName>.*)-driver', url)
     if not match:
         return "unknown"
     try:
