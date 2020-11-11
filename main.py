@@ -2,7 +2,7 @@ import sys
 import re
 from subprocess import check_call, call, check_output
 
-remote = "upstream"
+remote = "origin"
 
 
 def probe_driver_repo_for_name(driverRepoPath):
