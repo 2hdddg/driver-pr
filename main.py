@@ -1,5 +1,6 @@
 import sys
 import re
+from os.path import abspath
 from subprocess import check_call, call, check_output
 
 remote = "origin"
@@ -26,6 +27,8 @@ def get_testkit_branch(driverName, driverTargetBranch):
 
 
 def main(testkitRepoPath, driverRepoPath, driverTargetBranch):
+    testkitRepoPath = abspath(testkitRepoPath)
+    driverRepoPath = abspath(driverRepoPath)
     driverName = probe_driver_repo_for_name(driverRepoPath)
     print("Driver is {} and target branch is {}".format(
         driverName, driverTargetBranch))
